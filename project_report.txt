@@ -1,0 +1,65 @@
+📄 📘 FINAL PROJECT REPORT
+🚗 Car Object Detection using CNN (ResNet50)
+🔹 1. Aim
+
+To develop a deep learning-based system that:
+
+Detects whether a car is present in an image
+Predicts the bounding box location of the car
+Reduces false positives using negative samples
+Compares performance using Adam, SGD, RMSprop optimizers
+🔹 2. Objective
+Implement object detection using CNN
+Use transfer learning (ResNet50)
+Perform multi-task learning:
+Classification (car / no car)
+Localization (bounding box)
+Evaluate model performance using accuracy metrics
+🔹 3. Dataset
+Source: Kaggle Car Object Detection Dataset
+Contents:
+Training images (~1000)
+Bounding box annotations (CSV)
+Additional negative images (no cars)
+🔹 4. Methodology
+🔄 Workflow:
+Image → Preprocessing → ResNet50 → Feature Extraction
+→ Classification Head (Car / No Car)
+→ Bounding Box Head (xmin, ymin, xmax, ymax)
+→ Output
+🔹 5. Model Architecture
+Backbone: ResNet50 (pre-trained on ImageNet)
+Two output layers:
+Classification Head → Sigmoid activation
+Bounding Box Head → 4 normalized coordinates
+🔹 6. Loss Functions
+Classification → Binary Crossentropy
+Bounding Box → Huber Loss
+Loss weighting applied to balance learning
+🔹 7. Performance Metrics
+Accuracy → Classification performance
+MAE → Bounding box error
+IoU (conceptual) → overlap between predicted and actual box
+🔹 8. Optimizer Comparison
+Optimizer	Observation
+Adam	Fast convergence, best accuracy ✅
+SGD	Slower but stable
+RMSprop	Moderate performance
+🔹 9. Results
+Successfully detects cars in images
+Predicts bounding boxes accurately
+Avoids detection in non-car images
+Adam optimizer performed best
+🔹 10. Limitations
+Detects only single object
+Not ideal for multiple cars
+Performance depends on dataset quality
+🔹 11. Future Scope
+Use YOLO / Faster R-CNN
+Add real-time video detection
+Improve dataset diversity
+Deploy as web application
+🔹 12. Conclusion
+
+The project demonstrates how CNN + transfer learning can be used for object detection.
+By combining classification and localization, the system achieves reliable detection while reducing false positives
